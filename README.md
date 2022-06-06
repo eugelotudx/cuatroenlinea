@@ -39,10 +39,12 @@ DDEV. Primero, inserte el nombre del proyecto deseado, o presione `Enter` si des
 ### Abrir el proyecto
 
 10. Ejecute `ddev start` y luego `ddev launch`. Debería ver una imagen como la siguiente
-FALTA LA IMAGEN!!!!
+
+![Página de inicio de Laravel](/imagenes/laravel.png)
 
 11. Para jugar, deberá usar una url como la siguiente: `https://cuatroenlinea.ddev.site/jugar/` y añadirle un número con dígitos entre el 1 al 7. Por ejemplo: `https://cuatroenlinea.ddev.site/jugar/177665454`. Esta última debería mostrar la siguiente vista  
-AÑADIR IMAGEN!!
+
+![Vista del juego cuatro en línea](/imagenes/cuatroenlinea.png)
 
 ### Cerrar el proyecto
 Para cerrar el proyecto, ejecute `ddev poweroff`
