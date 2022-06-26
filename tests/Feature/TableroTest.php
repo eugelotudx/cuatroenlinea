@@ -18,7 +18,14 @@ class TableroTest extends TestCase
 	
 	public function test_casillas()
 	{
-		$fuente = file_get_contents($this->url);
+		$arrContextOptions=array(
+			"ssl"=>array(
+				"verify_peer"=>false,
+				"verify_peer_name"=>false,
+			),
+		);
+		
+		$fuente = file_get_contents($this->url,false, stream_context_create($arrContextOptions));
 		$this->assertTrue(substr_count($fuente, "bg-red-500") === 14);
 		$this->assertTrue(substr_count($fuente, "bg-sky-500") === 7);
 		$this->assertTrue(substr_count($fuente, "bg-gray-200") === 28);
@@ -26,7 +33,14 @@ class TableroTest extends TestCase
 	
 	public function test_casillasgiran()
 	{
-		$fuente = file_get_contents($this->url);
+		$arrContextOptions=array(
+			"ssl"=>array(
+				"verify_peer"=>false,
+				"verify_peer_name"=>false,
+			),
+		);
+
+		$fuente = file_get_contents($this->url,false, stream_context_create($arrContextOptions));
 		$this->assertTrue(substr_count($fuente, "hover:animate-spin") === 7);
 	}
 	
