@@ -8,17 +8,22 @@ use Tests\TestCase;
 class TableroTest extends TestCase
 {
 	protected $url = "https://cuatroenlinea.ddev.site/jugar/11223344556677";
-	
+	private $arrContextOptions = array(
+		    "ssl" => array(
+		             "verify_peer"=>false,
+		             "verify_peer_name"=>false,
+		             ),
+	);  
+		
 	public function test_conexion()
     {
-        $response = $this->get($this->url);
-
-        $response->assertStatus(200);
+       	$response = $this->get($this->url);
+	    $response->assertStatus(200);
     }
 	
 	public function test_casillas()
 	{
-		$fuente = file_get_contents($this->url);
+		$fuente = file_get_contents($this->url, false, stream_context_create($this->arrContextOptions));
 		$this->assertTrue(substr_count($fuente, "bg-red-500") === 14);
 		$this->assertTrue(substr_count($fuente, "bg-sky-500") === 7);
 		$this->assertTrue(substr_count($fuente, "bg-gray-200") === 28);
@@ -26,7 +31,7 @@ class TableroTest extends TestCase
 	
 	public function test_casillasgiran()
 	{
-		$fuente = file_get_contents($this->url);
+		$fuente = file_get_contents($this->url, false, stream_context_create($this->arrContextOptions));
 		$this->assertTrue(substr_count($fuente, "hover:animate-spin") === 7);
 	}
 	
