@@ -15,7 +15,7 @@ jobs:
  
     - name: Prepare Laravel Application
       run: |
-        cp .env.example .env
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
         php artisan key:generate
  
     - name: Run Tests
