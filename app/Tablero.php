@@ -16,10 +16,13 @@ class Tablero{
 		$columna = $columna - 1;
 		$this->tablero[$columna][$this->nivelPorColumna[$columna]] = $ficha;
 		$this->nivelPorColumna[$columna] ++;
+		$this->secuencia[] = $columna
 	}
 	
 	public function deshacer_ultimo_movimiento(){
-		
+		$columna = array_pop($this->secuencia)
+		$this->tablero[$columna][$this->nivelPorColumna[$columna]] = NULL;
+		$this->nivelPorColumna[$columna] --;
 	}
 	
 }
