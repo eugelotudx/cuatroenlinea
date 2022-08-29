@@ -3,7 +3,7 @@
 namespace App;
 
 class Ficha{
-	$color;
+	protected $color;
 	
 	public function get_color(){
 		return $this->color;
