@@ -25,4 +25,15 @@ class Tablero{
     $this->tablero[$columna][$this->nivelPorColumna[$columna]] = NULL;
 	}
 	
+	public function mostrar_tablero(){
+		return $this->tablero;
+	}
+	
+	public function mostrar_nivelPorColumna(){
+		return $this->nivelPorColumna;
+	}
+
+	public function mostrar_secuencia(){
+		return $this->secuencia;
+	}	
 }
