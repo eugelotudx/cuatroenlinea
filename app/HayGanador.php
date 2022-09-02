@@ -1,13 +1,14 @@
 <?php
 
+namespace App;
+
 class HayGanador{
-	
 	public function hay_ganador(Tablero $tablero){
 		$resultado = Null;
 		$tablero = $tablero->mostrar_tablero();
 		for($columna = 0; $columna < 7 && $resultado == Null; $columna = $columna + 1){
 			for($fila = 0; $fila < 6 && $resultado == Null; $fila = $fila + 1){
-				$resultado = $this->checkVertical($tablero, $fila, $columna);
+				$resultado = $this->check_vertical($tablero, $fila, $columna);
 				if ($resultado == Null){
 					$resultado = $this->check_horizontal($tablero, $fila, $columna);
 				}
