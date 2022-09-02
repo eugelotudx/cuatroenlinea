@@ -62,34 +62,29 @@ class TableroTest extends TestCase
 	public function test_generarTablero()
 	{
 		$tablero = new Tablero();
-		$tablero->generar_tablero();
 		$this->assertTrue($tablero->mostrar_tablero() === [array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL)]);
-		$this->assertTrue($tablero->mostrar_nivelPorColumna() === [0,0,0,0,0,0,0]);
+		$this->assertTrue($tablero->mostrar_nivel_por_columna() === [0,0,0,0,0,0,0]);
 		$this->assertTrue($tablero->mostrar_secuencia() === []);
 	}
 	
 	public function test_tirarficha()
 	{
-		$tablero = new Tablero();
-		$tablero->generar_tablero();
-		
-		$ficha = new Ficha();
+		$tablero = new Tablero();		
+		$ficha = new Ficha("rojo");
 		
 		$tablero->tirar_ficha($ficha, 4);
 		$tablero->tirar_ficha($ficha, 4);
 		$tablero->tirar_ficha($ficha, 4);
 
-		$this->assertTrue($tablero->mostrar_nivelPorColumna() === [0,0,0,3,0,0,0]);
+		$this->assertTrue($tablero->mostrar_nivel_por_columna() === [0,0,0,3,0,0,0]);
 		$this->assertTrue($tablero->mostrar_secuencia() === [3,3,3]);
 		$col4expectedvalue = [$ficha,$ficha,$ficha,NULL,NULL,NULL];
 		$this->assertTrue($tablero->mostrar_tablero() === [array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),$col4expectedvalue,array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL)]);
 	}
 
 	public function test_deshacer_ultimo_movimiento(){
-		$tablero = new Tablero();
-		$tablero->generar_tablero();
-		
-		$ficha = new Ficha();
+		$tablero = new Tablero();		
+		$ficha = new Ficha("verde");
 		
 		$tablero->tirar_ficha($ficha, 4);
 		$tablero->tirar_ficha($ficha, 4);
@@ -97,7 +92,7 @@ class TableroTest extends TestCase
 		
 		$tablero->deshacer_ultimo_movimiento();
 		
-		$this->assertTrue($tablero->mostrar_nivelPorColumna() === [0,0,0,2,0,0,0]);
+		$this->assertTrue($tablero->mostrar_nivel_por_columna() === [0,0,0,2,0,0,0]);
 		$this->assertTrue($tablero->mostrar_secuencia() === [3,3]);
 		$col4expectedvalue = [$ficha,$ficha,NULL,NULL,NULL,NULL];
 		$this->assertTrue($tablero->mostrar_tablero() === [array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL),$col4expectedvalue,array_fill(0, 6, NULL),array_fill(0, 6, NULL),array_fill(0, 6, NULL)]);
