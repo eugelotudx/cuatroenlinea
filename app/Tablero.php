@@ -29,7 +29,7 @@ class Tablero{
 		return $this->tablero;
 	}
 	
-	public function mostrar_nivelPorColumna(){
+	public function mostrar_nivel_por_columna(){
 		return $this->nivelPorColumna;
 	}
 
