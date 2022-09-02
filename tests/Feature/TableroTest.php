@@ -9,7 +9,6 @@ use Tests\TestCase;
 class TableroTest extends TestCase
 {
 	protected $url = "https://cuatroenlinea.ddev.site/jugar/11223344556677";
-	protected $tablero;
 	
 	public function test_conexion()
     {
