@@ -87,7 +87,7 @@ class GanadorTest extends TestCase
 	}
 	
 	public function test_ganador_diagonal_abajo(){
-				$tablero = new Tablero();
+		$tablero = new Tablero();
 		$fichaRoja = new Ficha("rojo");
 		$fichaAzul = new Ficha("azul");
 		$hayganador = new HayGanador();
